@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>icon/checkbox-non.png</file>
+        <file>icon/close.png</file>
+        <file>icon/setting.png</file>
+        <file>icon/full-screen.png</file>
+        <file>icon/message.png</file>
+        <file>icon/minimize.png</file>
+        <file>icon/minimode.png</file>
+        <file>icon/exit.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>rightPage/RightPage.qml</file>
+        <file>leftPage/LeftPage.qml</file>
+        <file>playMusic/PlayMusic.qml</file>
+        <file>commonUI/CloudWindow.qml</file>
+        <file>title/MinAndMax.qml</file>
+    </qresource>
+</RCC>
