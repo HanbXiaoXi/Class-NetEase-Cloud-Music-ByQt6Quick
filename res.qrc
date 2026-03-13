@@ -8,6 +8,17 @@
         <file>icon/minimize.png</file>
         <file>icon/minimode.png</file>
         <file>icon/exit.png</file>
+        <file>icon/chat.png</file>
+        <file>icon/clothes.png</file>
+        <file>icon/cloud.png</file>
+        <file>icon/download.png</file>
+        <file>icon/history.png</file>
+        <file>icon/home.png</file>
+        <file>icon/like.png</file>
+        <file>icon/local.png</file>
+        <file>icon/newList.png</file>
+        <file>icon/podcast.png</file>
+        <file>icon/userAvatar.png</file>
     </qresource>
     <qresource prefix="/">
         <file>rightPage/RightPage.qml</file>
