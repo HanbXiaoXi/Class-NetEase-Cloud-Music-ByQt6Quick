@@ -9,20 +9,21 @@ CloudWindow{
     id: window
     width: 1317
     height: 933
-    LeftPage{
-        id:leftRect
-        width:255
-        anchors.top: parent.top
-        anchors.bottom: bottomRect.top
-        color:"#1a1a21"
-    }
     RightPage{
         id:rightRect
         anchors.top: parent.top
         anchors.left: leftRect.right
         anchors.right: parent.right
         anchors.bottom: bottomRect.top
+        messageDrawHeight:parent.height - bottomRect.height//消息栏高度
         color:"#13131a"
+    }
+    LeftPage{
+        id:leftRect
+        width:255
+        anchors.top: parent.top
+        anchors.bottom: bottomRect.top
+        color:"#1a1a21"
     }
     PlayMusic{
         id:bottomRect

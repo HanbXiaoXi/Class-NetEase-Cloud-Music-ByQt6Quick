@@ -1,11 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QQuickStyle>
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
+    // QQuickStyle::setStyle("Material"); //设置风格
     engine.addImportPath("qrc:/leftPage/LeftPage.qml");
     engine.addImportPath("qrc:/rightPage/RightPage.qml");
     engine.addImportPath("qrc:/playMusic/PlayMusic.qml");

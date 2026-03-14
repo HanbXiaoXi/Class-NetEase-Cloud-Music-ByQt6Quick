@@ -23,13 +23,18 @@
         <file>icon/up.png</file>
         <file>icon/e-mail.png</file>
         <file>icon/microphone.png</file>
+        <file>icon/left.png</file>
+        <file>icon/search.png</file>
     </qresource>
     <qresource prefix="/">
         <file>rightPage/RightPage.qml</file>
         <file>leftPage/LeftPage.qml</file>
         <file>playMusic/PlayMusic.qml</file>
         <file>commonUI/CloudWindow.qml</file>
-        <file>title/MinAndMax.qml</file>
-        <file>title/UserBar.qml</file>
+        <file>rightPage/messageDraw/MessageDraw.qml</file>
+        <file>rightPage/title/MinAndMax.qml</file>
+        <file>rightPage/title/UserBar.qml</file>
+        <file>rightPage/title/UserSearch.qml</file>
+        <file>rightPage/search/Search.qml</file>
     </qresource>
 </RCC>

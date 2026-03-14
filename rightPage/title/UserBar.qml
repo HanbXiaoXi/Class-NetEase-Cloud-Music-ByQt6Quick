@@ -5,11 +5,11 @@ Item {
     width:140
     anchors.verticalCenter:parent.verticalCenter
     Row{
-        spacing: 8
+        spacing: 2
         anchors.verticalCenter:parent.verticalCenter
         Rectangle{
             id:userIconRect
-            width: 34
+            width: 32
             height:width
             radius:width/2
             color:"#2d2d37"

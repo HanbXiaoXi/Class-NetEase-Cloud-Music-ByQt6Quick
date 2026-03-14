@@ -1,10 +1,12 @@
 import QtQuick 2.15
 
 Item {
-    id:mainId
+    id:settingBar
     height: parent.height
     width: minAndMax.width + setAndOthers.width + separator.width
+    signal messageOpen()
     property real opac: 0.5
+    property alias messageAreaVisible: messageArea.visible
     Row{
         id:setAndOthers
         height: parent.height
@@ -14,21 +16,21 @@ Item {
         property real iconSize: 18
         Image{
             id:loadStateDown
-            width:parent.iconSize
+            width:parent.iconSize*0.8
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/down.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
+
                     console.log("1")
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
             }
         }
@@ -38,18 +40,19 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/e-mail.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
+                id:messageArea
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
+                    settingBar.messageOpen()
                 }
             }
         }
@@ -59,18 +62,18 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/setting.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
+
                 }
             }
         }
@@ -80,32 +83,34 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/clothes.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
                 }
             }
         }
     }
+    //分隔符
     Rectangle{
         id:separator
-        width:2
-        height: minAndMax.iconSize * 0.8
+        width:1
+        height: minAndMax.iconSize
         anchors.verticalCenter:parent.verticalCenter
         anchors.right: minAndMax.left
-        anchors.rightMargin: 15
+        anchors.rightMargin: 10
         color: "gray"
         opacity: 0.3
     }
+
+
     Row{
         id:minAndMax
         height: parent.height
@@ -119,17 +124,16 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/minimode.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                     console.log("1")
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
             }
         }
@@ -139,16 +143,15 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/minimize.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
                     window.showMinimized()
@@ -160,17 +163,16 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/checkbox-non.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
 
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
                     if(window.visibility === Window.FullScreen){
@@ -186,16 +188,15 @@ Item {
             height:width
             anchors.verticalCenter:parent.verticalCenter
             source:"qrc:/img/icon/exit.png"
-            opacity: mainId.opac
+            opacity: settingBar.opac
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=mainId.opac
+                    parent.opacity=settingBar.opac
                 }
                 onClicked: {
                     Qt.quit()
