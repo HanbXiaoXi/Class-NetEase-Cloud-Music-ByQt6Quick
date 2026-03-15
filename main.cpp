@@ -1,15 +1,17 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include <QQmlContext>
+#include "C/dataprovider.h"
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    DataProvider provider; //创建json数据传输对象
+    provider.setabsolutePath("D:/Code/QT_CPP/CloudMusic");
     QQmlApplicationEngine engine;
     // QQuickStyle::setStyle("Material"); //设置风格
-    engine.addImportPath("qrc:/leftPage/LeftPage.qml");
-    engine.addImportPath("qrc:/rightPage/RightPage.qml");
-    engine.addImportPath("qrc:/playMusic/PlayMusic.qml");
-    engine.addImportPath("qrc:/commonUI/CloudWindow.qml");
+    // 数据传输
+    engine.rootContext()->setContextProperty("DataProvider", &provider);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

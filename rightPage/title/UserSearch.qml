@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Controls.Basic
+import "qrc:/rightPage/search"
+
 Item {
     id:uerSearch
     anchors.left: parent.left
@@ -43,7 +45,7 @@ Item {
             }
         }
 
-        //输入框
+        //搜索输入框
         TextField{
             id:searchTextField
             height:backForward.height
@@ -53,6 +55,12 @@ Item {
             font.wordSpacing:0
             leftPadding: 40                 //左边空出
             placeholderText:"请输入歌曲"
+            placeholderTextColor: "#71707a"
+            onFocusChanged: {
+                if(focus){
+                    searchPop.open() //打开搜索pop
+                }
+            }
             background: Rectangle{
                 anchors.fill:parent
                 color:"transparent"
@@ -77,15 +85,22 @@ Item {
                         onExited: {
                             parent.opacity = uerSearch.opac
                         }
-                        onClicked: {
-                        }
                     }
                 }
 
             }
-
-
+            SearchPopup{
+                id:searchPop
+                y: searchTextField.height + 10
+                x: -backForward.width -10
+                onClosed:{
+                    //切换focus
+                    searchTextField.focus = false
+                }
+            }
         }
+
+        // 收音搜索
         Rectangle{
             id:soundHound
             height:backForward.height

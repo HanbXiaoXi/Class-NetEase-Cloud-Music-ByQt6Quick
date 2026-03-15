@@ -25,6 +25,7 @@
         <file>icon/microphone.png</file>
         <file>icon/left.png</file>
         <file>icon/search.png</file>
+        <file>icon/trash.png</file>
     </qresource>
     <qresource prefix="/">
         <file>rightPage/RightPage.qml</file>
@@ -35,6 +36,9 @@
         <file>rightPage/title/MinAndMax.qml</file>
         <file>rightPage/title/UserBar.qml</file>
         <file>rightPage/title/UserSearch.qml</file>
-        <file>rightPage/search/Search.qml</file>
+        <file>rightPage/search/SearchPopup.qml</file>
+        <file>rightPage/search/searchTestData.xml</file>
+        <file>C/json.hpp</file>
+        <file>rightPage/search/searchTestData.js</file>
     </qresource>
 </RCC>

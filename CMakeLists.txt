@@ -17,6 +17,7 @@ qt_add_qml_module(appCloudMusic
     QML_FILES
         Main.qml
         RESOURCES res.qrc
+        SOURCES C/dataprovider.h C/dataprovider.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
