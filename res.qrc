@@ -26,6 +26,8 @@
         <file>icon/left.png</file>
         <file>icon/search.png</file>
         <file>icon/trash.png</file>
+        <file>img/login/loginTest.png</file>
+        <file>img/login/QR.png</file>
     </qresource>
     <qresource prefix="/">
         <file>rightPage/RightPage.qml</file>
@@ -40,5 +42,22 @@
         <file>rightPage/search/searchTestData.xml</file>
         <file>C/json.hpp</file>
         <file>rightPage/search/searchTestData.js</file>
+        <file>Basic/BasicConfig.qml</file>
+        <file>Basic/qmldir</file>
+        <file>loginPopup/LoginPopup.qml</file>
+        <file>loginPopup/LoginPopupByOthers.qml</file>
+        <file>rightPage/search/SearchingPopup.qml</file>
+        <file>rightPage/stackPages/CloudMusicCherryPick.qml</file>
+        <file>rightPage/setting/UseSetting.qml</file>
+        <file>rightPage/setting/items/AccountSetting.qml</file>
+        <file>rightPage/setting/items/Routine.qml</file>
+        <file>Basic/CustomCheckBox.qml</file>
+        <file>Basic/CustomComboBox.qml</file>
+        <file>Basic/CustomCutLine.qml</file>
+        <file>Basic/CustomCricularCheck.qml</file>
+        <file>rightPage/setting/items/SystemSetting.qml</file>
+        <file>rightPage/setting/items/PlayerSetting.qml</file>
+        <file>rightPage/setting/items/MessageAndPrivacy.qml</file>
+        <file>rightPage/setting/items/ShortcutKey.qml</file>
     </qresource>
 </RCC>

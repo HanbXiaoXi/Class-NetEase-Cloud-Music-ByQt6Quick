@@ -26,8 +26,6 @@ Item {
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-
-                    console.log("1")
                 }
                 onExited: {
                     parent.opacity=settingBar.opac
@@ -56,6 +54,7 @@ Item {
                 }
             }
         }
+        // 设置按钮
         Image{
             id:setting
             width:parent.iconSize
@@ -72,8 +71,9 @@ Item {
                 onExited: {
                     parent.opacity=settingBar.opac
                 }
+                // 压入设置界面
                 onClicked: {
-
+                    mainStackView.push("qrc:/rightPage/setting/UseSetting.qml")
                 }
             }
         }
@@ -130,7 +130,6 @@ Item {
                 hoverEnabled: true
                 onEntered: {
                     parent.opacity=0.9
-                    console.log("1")
                 }
                 onExited: {
                     parent.opacity=settingBar.opac
@@ -175,7 +174,7 @@ Item {
                     parent.opacity=settingBar.opac
                 }
                 onClicked: {
-                    if(window.visibility === Window.FullScreen){
+                    if(window.visibility === Window.Maximized){
                         window.showNormal()
                     }else{
                         window.showMaximized()

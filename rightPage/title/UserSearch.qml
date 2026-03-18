@@ -14,6 +14,7 @@ Item {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         spacing :8
+        //回退按键
         Rectangle{
             id:backForward
             width: 27
@@ -28,6 +29,7 @@ Item {
                 height:width
                 source:"qrc:/img/icon/left.png"
                 opacity:uerSearch.opac +0.3
+
             }
             MouseArea{
                 anchors.fill: parent
@@ -39,6 +41,7 @@ Item {
                 onExited: {
                     parent.color = "transparent"
                 }
+                //回退操作
                 onClicked: {
 
                 }
@@ -57,10 +60,24 @@ Item {
             placeholderText:"请输入歌曲"
             placeholderTextColor: "#71707a"
             onFocusChanged: {
-                if(focus){
+                if(focus && !text){
+                    searchingPop.close()
+                    searchPop.open() //打开搜索pop
+                }else if(focus && text){
+                    searchPop.close()
+                    searchingPop.open() //输入时打开的pop
+                }
+            }
+            onTextChanged:{
+                if(text){
+                    searchPop.close()
+                    searchingPop.open() //输入时打开的pop
+                }else{
+                    searchingPop.close()
                     searchPop.open() //打开搜索pop
                 }
             }
+
             background: Rectangle{
                 anchors.fill:parent
                 color:"transparent"
@@ -87,14 +104,27 @@ Item {
                         }
                     }
                 }
-
             }
             SearchPopup{
                 id:searchPop
                 y: searchTextField.height + 10
                 x: -backForward.width -10
+                onOpened:{
+                    searchTextField.focus = true
+                }
                 onClosed:{
                     //切换focus
+                    searchTextField.focus = false
+                }
+            }
+            SearchingPopup{
+                id: searchingPop
+                y: searchTextField.height + 10
+                x: -backForward.width -10
+                onOpened:{
+                    searchTextField.focus = true
+                }
+                onClosed:{
                     searchTextField.focus = false
                 }
             }

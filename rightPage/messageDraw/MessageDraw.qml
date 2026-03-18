@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
+import "qrc:/Basic"
 Item {
     id:messageDrawId
     anchors.fill: parent
@@ -18,19 +19,29 @@ Item {
     }
     Drawer{
         id: drawerId
-        z: 100
+        // z: 100
         width: 300
         height: messageDrawId.drawHeight
         topMargin:messageDrawId.drawTopMargin
+
+        background: Rectangle{
+            anchors.fill: parent
+            color: BasicConfig.boxBorderColor
+            radius: 10
+        }
+
         edge: Qt.RightEdge
         interactive:true
+        dragMargin:0 //防止滑动
         closePolicy: Popup.CloseOnReleaseOutside
         modal: false
         onOpenedChanged:  {
             if(opened){
                 messageDrawId.drawerClose(false)
+
             }else{
                 messageDrawId.drawerClose(true)
+                focus = false
             }
         }
     }

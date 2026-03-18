@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls
+import "qrc:/Basic"
 Item {
     height: 30
     width:140
@@ -20,6 +21,7 @@ Item {
                 source:"qrc:/img/icon/userAvatar.png"
                 opacity: 0.4
             }
+
         }
         Text{
             id:loadStateText
@@ -29,18 +31,23 @@ Item {
             font.bold: true
             font.family: "微软雅黑 light"
             color:"white"
-            opacity: 0.3
+            opacity: 0.4
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
-                    parent.opacity=0.6
+                    parent.opacity=0.8
                     parent.width = parent.iconSize*1.2
                 }
                 onExited: {
-                    parent.opacity=0.3
+                    parent.opacity=0.4
+                }
+                onClicked: {
+                    //打开登录窗口
+                    BasicConfig.openLoginPopup()
                 }
             }
+
         }
         Item{
             id:membershipLogo

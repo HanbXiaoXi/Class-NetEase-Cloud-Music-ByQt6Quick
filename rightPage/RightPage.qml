@@ -1,11 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls
+import "qrc:/Basic"
 import "qrc:/rightPage/title"
 import "qrc:/rightPage/messageDraw"
+import "qrc:/rightPage/stackPages"
+import "qrc:/rightPage/setting"
 Rectangle{
     id:rightRect
     property real messageDrawHeight: 700
-
     Rectangle{ //任务栏
         id:taskBar
         height:60
@@ -34,6 +36,8 @@ Rectangle{
             anchors.rightMargin: 15
         }
     }
+
+    //邮箱Popup
     MessageDraw{
         id:messageDraw
         anchors.fill: parent
@@ -41,16 +45,26 @@ Rectangle{
         drawTopMargin:taskBar.height +20
         drawHeight:rightRect.messageDrawHeight - drawTopMargin
     }
+    //位于中间 有最大值
+    StackView{
+        id:mainStackView
+        anchors.top:taskBar.bottom
+        width: parent.width < 1800 ? parent.width :1800
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        clip: true
+        initialItem: "qrc:/rightPage/stackPages/CloudMusicCherryPick.qml"
+    }
 
 
-
-    Connections{   //消息连接
+    Connections{   //连接窗口打开关闭
         target: minAndMax
         function onMessageOpen(){
             messageDraw.open()
         }
+
     }
-    Connections{
+    Connections{ // 在邮箱打开时让邮箱图标的MouseArea无效
         target: messageDraw
         function onDrawerClose(visible){
             minAndMax.messageAreaVisible = visible

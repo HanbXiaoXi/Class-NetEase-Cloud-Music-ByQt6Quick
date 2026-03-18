@@ -1,9 +1,10 @@
 #include "dataprovider.h"
 #include "json.hpp"
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <vector>
-
+using std::filesystem::current_path;
 using json = nlohmann::json;
 
 DataProvider::DataProvider(QObject *parent):
@@ -56,7 +57,6 @@ QVariantList DataProvider::getData(QUrl url, QVariantList searchList){
         list.push_back(QVariant::fromValue(map));
         }
     }
-    qDebug() <<list;
     return list;
 }
 

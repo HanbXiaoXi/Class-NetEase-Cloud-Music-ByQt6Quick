@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
     engine.loadFromModule("CloudMusic", "Main");
-
+    // 添加单例BasicConfig
+    qmlRegisterSingletonType(QUrl("qrc:/Basic/BasicConfig.qml"),"BasicConfig",1,0,"BasicConfig");
     return app.exec();
 }
