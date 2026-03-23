@@ -11,8 +11,6 @@ CloudWindow{
     id: window
     width: 1317
     height: 933
-
-
     Connections{
         target: BasicConfig
         function onOpenLoginPopup(){  //打开登录界面

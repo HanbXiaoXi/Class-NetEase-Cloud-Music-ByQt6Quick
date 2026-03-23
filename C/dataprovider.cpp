@@ -4,12 +4,18 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <regex>
 using std::filesystem::current_path;
 using json = nlohmann::json;
 
 DataProvider::DataProvider(QObject *parent):
     QObject(parent) {
     qDebug() << "DataProvider Created";
+    std::string  cPath = current_path().string(); //path类型转换为string类型
+    cPath = std::regex_replace(cPath,std::regex("\\\\"),"/");
+    cPath = std::regex_replace(cPath,std::regex("CloudMusic.*"),"CloudMusic");
+    m_absolutePath = QString::fromStdString(cPath);
+    qDebug() << m_absolutePath;
 }
 
 QVariantList DataProvider::getData(QUrl url, QVariantList searchList){
@@ -46,15 +52,15 @@ QVariantList DataProvider::getData(QUrl url, QVariantList searchList){
             continue;
         }
         {
-        QVariantMap map;
-        for(std::string& it : searchs){
-            if(item.contains(it)){
-                // qDebug() << item[it];
-                map[QString::fromStdString(it)] = QString::fromStdString(item[it]);
+            QVariantMap map;
+            for(std::string& it : searchs){
+                if(item.contains(it)){
+                    // qDebug() << item[it];
+                    map[QString::fromStdString(it)] = QString::fromStdString(item[it]);
+                }
             }
-        }
-        qDebug() <<map;
-        list.push_back(QVariant::fromValue(map));
+            qDebug() <<map;
+            list.push_back(QVariant::fromValue(map));
         }
     }
     return list;

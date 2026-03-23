@@ -59,5 +59,6 @@
         <file>rightPage/setting/items/PlayerSetting.qml</file>
         <file>rightPage/setting/items/MessageAndPrivacy.qml</file>
         <file>rightPage/setting/items/ShortcutKey.qml</file>
+        <file>Basic/CustomInputMapping.qml</file>
     </qresource>
 </RCC>

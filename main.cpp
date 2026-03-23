@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     DataProvider provider; //创建json数据传输对象
-    provider.setabsolutePath("D:/Code/QT_CPP/CloudMusic");
+    // provider.setabsolutePath("D:/Code/QT_CPP/CloudMusic");  //当前路径
     QQmlApplicationEngine engine;
     // QQuickStyle::setStyle("Material"); //设置风格
     // 数据传输

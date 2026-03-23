@@ -4,7 +4,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Basic
 import "qrc:/Basic"
 QtObject {
-    signal blankAreaClicked()
+    // property string currentPath :
+    signal blankAreaClicked()  //点击空白区域
     signal openLoginPopup()  //打开登录菜单
     property color windowBoderColor :"#75777f"
     property color leftPageColor: "#1a1a20"
@@ -22,9 +23,14 @@ QtObject {
 
 }
 // import "qrc:/Basic"
-//字体
-// BasicConfig.fontFamily
+//当前路径
 
+//字体
+/*
+font.pixelSize: 14
+font.bold: true
+font.family: BasicConfig.fontFamily
+*/
 //颜色
 // BasicConfig.firstFontColor
 // BasicConfig.secondFontColor

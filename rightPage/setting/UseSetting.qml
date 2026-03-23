@@ -150,6 +150,7 @@ Item {
             anchors.bottom: parent.bottom
             clip:true
             contentHeight: settingColumn.implicitHeight + 1000
+
             ScrollBar.vertical: ScrollBar{
                 anchors.right: parent.right
                 anchors.rightMargin: 5
