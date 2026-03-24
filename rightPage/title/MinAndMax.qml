@@ -1,5 +1,5 @@
 import QtQuick 2.15
-
+import "qrc:/Basic"
 Item {
     id:settingBar
     height: parent.height
@@ -74,6 +74,8 @@ Item {
                 // 压入设置界面
                 onClicked: {
                     mainStackView.push("qrc:/rightPage/setting/UseSetting.qml")
+                    BasicConfig.gobalStack.push(()=>{mainStackView.pop()})
+                    console.log(BasicConfig.gobalStack.length)
                 }
             }
         }
@@ -94,6 +96,7 @@ Item {
                     parent.opacity=settingBar.opac
                 }
                 onClicked: {
+
                 }
             }
         }

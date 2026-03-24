@@ -14,11 +14,23 @@ Popup {
     property bool searchPopOpened: false
     property bool maybeLikeExpand :false
     clip:true
+    MouseArea{ //用于搜索页面滑动
+        anchors.fill: parent
+        onWheel:function(wheel){
+            // console.log(wheel.angleDelta)
+            searchFlick.contentY = Math.max(0, Math.min(searchFlick.contentY -wheel.angleDelta.y*0.6 /* 滑动系数 */, searchFlick.contentHeight - searchFlick.height)) //实现滚动
+        }
+        // 点击穿过
+        onPressed:mouse=> mouse.accepted = false;
+        onReleased: mouse=>mouse.accepted = false;
+        onClicked: mouse=>mouse.accepted = false;
+    }
     background: Rectangle{
         anchors.fill: parent
         radius:10
         color:BasicConfig.popupBackgroudColor
         Flickable{
+            id:searchFlick
             anchors.fill:parent
             // Flickable的大小由contentWidth和contentHeight决定
             contentHeight:1000

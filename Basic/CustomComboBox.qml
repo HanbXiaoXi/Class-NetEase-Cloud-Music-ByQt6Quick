@@ -31,9 +31,9 @@ ComboBox{
             onClicked: {
                 // console.log("Clicked")
                 cbx.popup.open()
-
             }
         }
+
     }
     indicator: Label{
         text:">"
@@ -64,6 +64,20 @@ ComboBox{
         y:parent.height+5
         width: parent.width
         height: popupView.count < 7 ? popupView.count * 30  : 210
+
+        MouseArea{
+            anchors.fill: parent
+            onWheel:function(wheel){
+                // console.log(wheel.angleDelta)
+                popupView.contentY = Math.max(0, Math.min(popupView.contentY -wheel.angleDelta.y*0.4
+                                                          , popupView.contentHeight - popupView.height)) //实现滚动
+            }
+            // 点击穿过
+            onPressed:mouse=> mouse.accepted = false;
+            onReleased: mouse=>mouse.accepted = false;
+            onClicked: mouse=>mouse.accepted = false;
+        }
+
         background: Rectangle{
             anchors.right: parent.right
             anchors.left: parent.left
@@ -116,12 +130,15 @@ ComboBox{
                             parent.color = BasicConfig.boxColor
                             cursorShape = Qt.ArrowCursor
                         }
-                        onClicked: {
+                        onClicked: mouse=>{
                             // console.log("Clicked")
                             cbx.textR = modelData
                             popup.close()
                         }
+
+
                     }
+
                     //如果文字过长可能两行
                     //在两行甚至多行 且 对象数量不大于7的情况展开列表高度不足
                     Component.onCompleted: {
@@ -130,10 +147,12 @@ ComboBox{
                         }
                     }
                 }
+
             }
         }
         onOpened: { //点开时转换箭头方向
             parent.indicatorRotation = -90
+
         }
         onClosed: {
             parent.indicatorRotation = 90

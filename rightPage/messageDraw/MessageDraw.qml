@@ -9,7 +9,6 @@ Item {
     property real drawTopMargin: 100
     property real drawHeight :600
     signal drawerClose(bool visible) //用于关闭时打开message的mouseArea
-
     function open(){
         if(!drawerId.opened){
             drawerId.open()

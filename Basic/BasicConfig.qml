@@ -4,7 +4,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Basic
 import "qrc:/Basic"
 QtObject {
-    signal blankAreaClicked()
+    // property string currentPath :
+    signal blankAreaClicked()  //点击空白区域
     signal openLoginPopup()  //打开登录菜单
     property color windowBoderColor :"#75777f"
     property color leftPageColor: "#1a1a20"
@@ -19,12 +20,18 @@ QtObject {
     property color boxBorderColor: "#28282e"
     property color scrollBarColor:"#393943"
     property string fontFamily:"微软雅黑"
-
+    property var gobalStack :[]  //保存站页面弹出的方法
 }
-// import "qrc:/Basic"
-//字体
-// BasicConfig.fontFamily
 
+//当前路径
+// import "qrc:/Basic"
+
+//字体
+/*
+font.pixelSize: 14
+font.bold: true
+font.family: BasicConfig.fontFamily
+*/
 //颜色
 // BasicConfig.firstFontColor
 // BasicConfig.secondFontColor
@@ -48,4 +55,10 @@ QtObject {
         firstText:""
     }
 
+*/
+
+//压栈操作
+/*
+mainStackView.push("qrc:/rightPage/setting/UseSetting.qml")
+BasicConfig.gobalStack.push(()=>{mainStackView.pop()})
 */

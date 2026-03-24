@@ -33,7 +33,7 @@ Window {
 
         cursorShape: {
             const p = Qt.point(mouseX, mouseY);
-            const b = bw +2 ; // Increase the corner size slightly
+            const b = bw +3 ; // Increase the corner size slightly
             if (window.visibility != Window.Maximized){
                 // if (p.x < b && p.y < b) return Qt.SizeFDiagCursor;
                 if (p.x >= width - b && p.y >= height - b) return Qt.SizeFDiagCursor;
@@ -51,7 +51,7 @@ Window {
         target: null
         onActiveChanged: if (active) {
                              const p = resizeHandler.centroid.position;
-                             const b = bw + 10; // Increase the corner size slightly
+                             const b = bw + 20; // Increase the corner size slightly
                              let e = 0;
                              // if (p.x < b) { e |= Qt.LeftEdge }
                              if (p.x < width+b && p.x >= width - b) { e |= Qt.RightEdge }

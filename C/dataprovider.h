@@ -3,6 +3,10 @@
 #include <QObject>
 #include <QVariantList>
 #include <QUrl>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QFileInfoList>
 #include <QDebug>
 class DataProvider :public QObject {
     Q_OBJECT
@@ -10,6 +14,7 @@ class DataProvider :public QObject {
 public:
     explicit  DataProvider(QObject *parent = nullptr);
     Q_INVOKABLE QVariantList getData(QUrl source,QVariantList searchList);
+    Q_INVOKABLE QVariantList getDir(QUrl source);
     QString absolutePath() const;
     void setabsolutePath(const QString &newAbsolutePath);
 signals:

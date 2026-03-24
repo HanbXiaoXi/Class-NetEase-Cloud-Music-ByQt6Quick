@@ -36,7 +36,6 @@ Rectangle{
             anchors.rightMargin: 15
         }
     }
-
     //邮箱Popup
     MessageDraw{
         id:messageDraw
@@ -54,6 +53,13 @@ Rectangle{
         anchors.bottom: parent.bottom
         clip: true
         initialItem: "qrc:/rightPage/stackPages/CloudMusicCherryPick.qml"
+        property var stack: []
+        onPushEnterChanged: {
+
+        }
+        onPopEnterChanged: {
+
+        }
     }
 
 
@@ -70,5 +76,8 @@ Rectangle{
             minAndMax.messageAreaVisible = visible
         }
     }
-
+    Component.onCompleted: {
+        BasicConfig.gobalStack.push(()=>{mainStackView.pop()}) //将初始页面压入gobalStack
+        console.log(BasicConfig.gobalStack.length)
+    }
 }

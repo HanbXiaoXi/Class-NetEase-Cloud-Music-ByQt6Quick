@@ -28,6 +28,32 @@
         <file>icon/trash.png</file>
         <file>img/login/loginTest.png</file>
         <file>img/login/QR.png</file>
+        <file>icon/right.png</file>
+        <file>icon/next.png</file>
+        <file>icon/paly.png</file>
+        <file>icon/previous.png</file>
+        <file>icon/list.png</file>
+        <file>icon/pause.png</file>
+        <file>icon/volume.png</file>
+        <file>img/selects/171053.png</file>
+        <file>img/selects/171059.png</file>
+        <file>img/selects/171104.png</file>
+        <file>img/selects/171110.png</file>
+        <file>img/selects/171118.png</file>
+        <file>img/selects/4301.png</file>
+        <file>img/selects/4306.png</file>
+        <file>img/selects/4312.png</file>
+        <file>img/selects/4316.png</file>
+        <file>img/selects/4320.png</file>
+        <file>img/selects/newSongs/200503.png</file>
+        <file>img/selects/newSongs/200509.png</file>
+        <file>img/selects/newSongs/200514.png</file>
+        <file>img/selects/newSongs/200521.png</file>
+        <file>img/selects/newSongs/200526.png</file>
+        <file>img/selects/newSongs/200529.png</file>
+        <file>img/selects/newSongs/200541.png</file>
+        <file>img/selects/newSongs/200545.png</file>
+        <file>img/selects/newSongs/200550.png</file>
     </qresource>
     <qresource prefix="/">
         <file>rightPage/RightPage.qml</file>
@@ -59,5 +85,15 @@
         <file>rightPage/setting/items/PlayerSetting.qml</file>
         <file>rightPage/setting/items/MessageAndPrivacy.qml</file>
         <file>rightPage/setting/items/ShortcutKey.qml</file>
+        <file>Basic/CustomInputMapping.qml</file>
+        <file>rightPage/setting/items/QualityAndDownload.qml</file>
+        <file>rightPage/stackPages/items/Selected.qml</file>
+        <file>C/libzplay.a</file>
+        <file>C/libzplay.h</file>
+        <file>C/libzplay.lib</file>
+        <file>C/libzplay_borland.lib</file>
+        <file>playMusic/Item/ImageLoad.qml</file>
+        <file>rightPage/stackPages/items/SongsSquare.qml</file>
+        <file>rightPage/stackPages/items/selected/SingsGrid.qml</file>
     </qresource>
 </RCC>

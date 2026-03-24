@@ -41,13 +41,15 @@ Item{
     //字体选择
     CustomComboBox{
         id:fontSelectorBox
-        model: ["默认", "仿宋","宋体", "微软雅黑", "微软雅黑","新宋体","楷体","等线","等线 Light"]
+        model: ["默认", "仿宋","宋体", "微软雅黑", "微软雅黑 Light","新宋体","楷体","等线","等线 Light"]
         anchors.left: itemDiscriptionLabel.left
         anchors.top: itemDiscriptionLabel.bottom
         anchors.topMargin: 20
         onTextRChanged: { //实现设置的功能
             if(textR != "默认"){
                 BasicConfig.fontFamily = textR
+            }else{
+                BasicConfig.fontFamily = "微软雅黑"  //置入系统默认字体
             }
         }
     }

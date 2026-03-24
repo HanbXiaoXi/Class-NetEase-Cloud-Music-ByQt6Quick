@@ -1,4 +1,4 @@
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 import "qrc:/Basic"
@@ -21,7 +21,7 @@ Item {
             flickList.push(playerSetting)
             flickList.push(messageAndPrivacy)
             flickList.push(shortcutKey)
-            // flickList.push(qualityAndDownload)
+            flickList.push(qualityAndDownload)
             // flickList.push(desktopAndLyrics)
             // flickList.push(tool)
             // flickList.push(aboutSoftware)
@@ -121,7 +121,6 @@ Item {
                             })
                             mainId.jumpTo(index)
                         }
-
                     }
                 }
 
@@ -150,6 +149,8 @@ Item {
             anchors.bottom: parent.bottom
             clip:true
             contentHeight: settingColumn.implicitHeight + 1000
+            acceptedButtons: Qt.NoButton
+
             ScrollBar.vertical: ScrollBar{
                 anchors.right: parent.right
                 anchors.rightMargin: 5
@@ -189,13 +190,14 @@ Item {
                 ShortcutKey{
                     id:shortcutKey
                 }
+                QualityAndDownload{
+                    id:qualityAndDownload
+                }
             }
             onContentYChanged: {
                 mainId.changeTitleFlow()
             }
-
             onMovingChanged: {
-
             }
         }
 

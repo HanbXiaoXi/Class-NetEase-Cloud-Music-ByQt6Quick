@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 import "qrc:/rightPage/search"
-
+import "qrc:/Basic"
 Item {
     id:uerSearch
     anchors.left: parent.left
@@ -29,7 +29,6 @@ Item {
                 height:width
                 source:"qrc:/img/icon/left.png"
                 opacity:uerSearch.opac +0.3
-
             }
             MouseArea{
                 anchors.fill: parent
@@ -43,7 +42,10 @@ Item {
                 }
                 //回退操作
                 onClicked: {
-
+                    if(BasicConfig.gobalStack.length > 1){
+                        BasicConfig.gobalStack.pop()() //后一个()是执行匿名函数的操作
+                        console.log(BasicConfig.gobalStack.length)
+                    }
                 }
             }
         }

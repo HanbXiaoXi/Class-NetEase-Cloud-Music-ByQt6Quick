@@ -4,8 +4,7 @@ project(CloudMusic VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
-find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2)
-
+find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2 Multimedia)
 qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(appCloudMusic
@@ -18,6 +17,7 @@ qt_add_qml_module(appCloudMusic
         Main.qml
         RESOURCES res.qrc
         SOURCES C/dataprovider.h C/dataprovider.cpp
+        SOURCES C/musicplayer.h C/musicplayer.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -32,7 +32,7 @@ set_target_properties(appCloudMusic PROPERTIES
 )
 
 target_link_libraries(appCloudMusic
-    PRIVATE Qt6::Quick Qt6::QuickControls2
+    PRIVATE Qt6::Quick Qt6::QuickControls2 Qt6::Multimedia
 )
 
 include(GNUInstallDirs)
